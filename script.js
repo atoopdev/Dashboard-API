@@ -9,6 +9,6 @@ function getBackgroundImage(){
         console.log(data)
         
         document.body.style.backgroundImage = `url('${data.urls.full}')`
-
+        document.body.innerHTML = `<p id="photo-credit">Photo credit: ${data.user.name}</p>`
     })
 }
