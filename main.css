@@ -1,7 +1,20 @@
+/* takes content size, padding, and border into account when determing size of content */
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+/* remove margins on typography to keep margins consistent */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
 
 /* https://css-tricks.com/perfect-full-page-background-image/#awesome-easy-progressive-css3-way) */
@@ -16,6 +29,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   /* increase visibility over picture */
   text-shadow: 1px 1px 2px #474747;
+  font-size: 16px;
 }
 
 main {
@@ -23,6 +37,17 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 1em;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle {
+  font-size: 2.5rem;
+  text-align: center;
 }
 #photo-credit {
 }
