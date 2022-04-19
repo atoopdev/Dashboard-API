@@ -1,5 +1,6 @@
 getBackgroundImage()
 getCryptoData()
+displayTime()
 
 
 function getBackgroundImage(){
@@ -46,4 +47,24 @@ function getCryptoData(){
         console.error(err)
         document.getElementById("crypto").innerHTML = `<p>Bitcoin data down!</p>`
     })
+}
+
+function displayTime(){
+    let today = new Date()
+    let hours = today.getHours()
+    let midday = "";
+
+    if(hours>12){
+        hours-=12
+        midday = "PM"
+    }else{
+        midday = "AM"
+    }
+    // https://bobbyhadz.com/blog/javascript-get-minutes-with-leading-zero
+    // if already 2 digit will not pad with 0
+    let minutes = String(today.getMinutes()).padStart(2,'0')
+
+    let time = `${hours}:${minutes}${midday}`
+    console.log(time)
+    document.getElementById("time").innerText = time
 }
