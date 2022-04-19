@@ -23,9 +23,24 @@ function getBackgroundImage(){
 
 function getCryptoData(){
     fetch(`https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`, {method: "GET"})
-    .then(response=>response.json())
+    .then(response=>
+        {
+            // sometimes promise comes back true but is actually an error. this scans for error codes 400-500 and manually throws and error if received
+            if(!response.ok){
+                throw Error("Something went wrong")
+            }
+            console.log(response.status)
+            return response.json()
+        })
     .then(data=>{
-        console.log(`Name ${data.name } Current Price: ${data.market_data.current_price.usd}`)
-        document.getElementById("crypto").innerHTML = `Cryptocurrency: ${data.name}<BR> Current Price: $${data.market_data.current_price.usd}`
+        // console.log(`Name ${data.name } Current Price: ${data.market_data.current_price.usd}`)
+        // throw Error("Test error")
+        document.getElementById("crypto-top").innerHTML = `<img id="crypto-img" src="${data.image.small}" alt="cypot currency image"> <span>${data.name}</span>`
+        // Current Price: $${data.market_data.current_price.usd}
+    })
+    // largely catches errors due to network connectivity
+    .catch(err =>{
+        console.error(err)
+        document.getElementById("crypto").innerHTML = `<p>Bitcoin data down!</p>`
     })
 }

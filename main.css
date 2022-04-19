@@ -58,3 +58,15 @@ main {
 #photo-credit a:hover {
   text-decoration: underline;
 }
+
+#crypto-top {
+  display: flex;
+  align-items: center;
+}
+
+#crypto-top span {
+  margin-left: 0.5em;
+}
+#crypto-img {
+  width: 20px;
+}
