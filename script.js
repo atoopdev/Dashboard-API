@@ -60,6 +60,7 @@ function displayTime(){
     document.getElementById("time").innerText = time
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
 function getUserLocation(){
     if('geolocation' in navigator) {
         console.log("geolocation is available")
