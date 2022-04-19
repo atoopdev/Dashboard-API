@@ -51,20 +51,9 @@ function getCryptoData(){
 
 function displayTime(){
     let today = new Date()
-    let hours = today.getHours()
-    let midday = "";
-
-    if(hours>12){
-        hours-=12
-        midday = "PM"
-    }else{
-        midday = "AM"
-    }
-    // https://bobbyhadz.com/blog/javascript-get-minutes-with-leading-zero
-    // if already 2 digit will not pad with 0
-    let minutes = String(today.getMinutes()).padStart(2,'0')
-
-    let time = `${hours}:${minutes}${midday}`
-    console.log(time)
+    
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+    let time = today.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'})
+    // console.log(time)
     document.getElementById("time").innerText = time
 }
