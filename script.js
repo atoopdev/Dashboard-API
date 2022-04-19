@@ -1,6 +1,7 @@
 getBackgroundImage()
 getCryptoData()
-displayTime()
+// keep time up to date
+setInterval(displayTime, 1000)
 
 
 function getBackgroundImage(){
