@@ -36,6 +36,9 @@ function getCryptoData(){
         // console.log(`Name ${data.name } Current Price: ${data.market_data.current_price.usd}`)
         // throw Error("Test error")
         document.getElementById("crypto-top").innerHTML = `<img id="crypto-img" src="${data.image.small}" alt="cypot currency image"> <span>${data.name}</span>`
+        document.getElementById("crypto-bottom").innerHTML = `<span>Current Price: $${data.market_data.current_price.usd}</span>
+        <span>24hr high: ${data.market_data.high_24h.usd}</span>
+        <span>24hr low: ${data.market_data.low_24h.usd}</span>`
         // Current Price: $${data.market_data.current_price.usd}
     })
     // largely catches errors due to network connectivity
