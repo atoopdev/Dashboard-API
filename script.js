@@ -2,6 +2,7 @@ getBackgroundImage()
 getCryptoData()
 // keep time up to date
 setInterval(displayTime, 1000)
+getUserLocation()
 
 
 function getBackgroundImage(){
@@ -57,4 +58,34 @@ function displayTime(){
     let time = today.toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'})
     // console.log(time)
     document.getElementById("time").innerText = time
+}
+
+function getUserLocation(){
+    if('geolocation' in navigator) {
+        console.log("geolocation is available")
+        /* geolocation is available */
+      } else {
+        console.log("geolocation IS NOT available")
+        /* geolocation IS NOT available */
+      }
+      
+      let options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+      };
+
+      navigator.geolocation.getCurrentPosition(geoSuccess, geoError, options)
+}
+
+function geoSuccess(pos){
+    // pos.coords = whole object with more data
+    let lat = pos.coords.latitude
+    let long = pos.coords.longitude
+    console.log(`Success! Lat: ${lat} Long: ${long}`)
+    
+}
+
+function geoError(err){
+    console.warn(`Error(${err.code}): ${err.message}`)
 }
