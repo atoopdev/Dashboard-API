@@ -96,7 +96,13 @@ function geoError(err){
 
 function getWeather(latitude, longitude){
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`,{method:"GET"})
-    .then(response=>response.json())
+    .then(response=>
+        {
+            if(!response.ok){
+                throw Error("Weather data not available")
+            }
+            return response.json()
+        })
     .then(data =>{
         console.log("Weather data: ", data)
         document.getElementById("weather-top").innerHTML = `<span>${data.name}: ${data.weather[0].description}</span>`
