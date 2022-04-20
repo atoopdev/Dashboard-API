@@ -67,7 +67,7 @@ function getUserLocation(){
         /* geolocation is available */
       } else {
         console.log("geolocation IS NOT available")
-        document.getElementById("weather").innerHTML = `<p class="error">Location services is currently turned off. Please check your privacy and security settings to re-enable.</p>`
+        document.getElementById("weather-top").innerHTML = `<p class="error">Location services is currently turned off. Please check your privacy and security settings to re-enable.</p>`
         /* geolocation IS NOT available */
       }
       
@@ -85,10 +85,25 @@ function geoSuccess(pos){
     let lat = pos.coords.latitude
     let long = pos.coords.longitude
     console.log(`Success! Lat: ${lat} Long: ${long}`)
+    getWeather(lat, long)
     
 }
 
 function geoError(err){
     console.warn(`Error(${err.code}): ${err.message}`)
-    document.getElementById("weather").innerHTML = `<p class="error">Location cannot be determined. Please check your privacy and security settings.</p>`
+    document.getElementById("weather-top").innerHTML = `<p class="error">Location cannot be determined. Please check your privacy and security settings.</p>`
+}
+
+function getWeather(latitude, longitude){
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`,{method:"GET"})
+    .then(response=>response.json())
+    .then(data =>{
+        console.log("Weather data: ", data)
+        document.getElementById("weather-top").innerHTML = `<span>${data.name}: ${data.weather[0].description}</span>`
+        document.getElementById("weather-bottom").innerHTML = `<span>${data.main.temp} Feels like: ${data.main.feels_like}</span>`
+    })
+    .catch(err=>{
+        console.error(err)
+        document.getElementById("weather-top").innerHTML = `<p class="error">Weather forecast error</p>`
+    })
 }
