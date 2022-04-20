@@ -67,6 +67,7 @@ function getUserLocation(){
         /* geolocation is available */
       } else {
         console.log("geolocation IS NOT available")
+        document.getElementById("weather").innerHTML = `<p class="error">Location services is currently turned off. Please check your privacy and security settings to re-enable.</p>`
         /* geolocation IS NOT available */
       }
       
@@ -89,4 +90,5 @@ function geoSuccess(pos){
 
 function geoError(err){
     console.warn(`Error(${err.code}): ${err.message}`)
+    document.getElementById("weather").innerHTML = `<p class="error">Location cannot be determined. Please check your privacy and security settings.</p>`
 }
