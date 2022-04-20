@@ -105,8 +105,9 @@ function getWeather(latitude, longitude){
         })
     .then(data =>{
         console.log("Weather data: ", data)
-        document.getElementById("weather-top").innerHTML = `<span>${data.name}: ${data.weather[0].description}</span>`
-        document.getElementById("weather-bottom").innerHTML = `<span>${data.main.temp} Feels like: ${data.main.feels_like}</span>`
+        let temp = Math.round(data.main.temp)
+        document.getElementById("weather-top").innerHTML = `<span>${temp}&#xb0; <img id="weather-icon" src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="weather icon"></span>`
+        document.getElementById("weather-bottom").innerHTML = `<span>${data.name}</span>`
     })
     .catch(err=>{
         console.error(err)
