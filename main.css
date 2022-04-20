@@ -93,6 +93,7 @@ align-items: center;
 
 #weather-bottom{
   text-align: right;
+  /* margin: -10px; */
 }
 
 #weather-bottom span{
