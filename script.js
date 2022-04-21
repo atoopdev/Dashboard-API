@@ -114,3 +114,11 @@ function getWeather(latitude, longitude){
         document.getElementById("weather-top").innerHTML = `<p class="error">Weather forecast error</p>`
     })
 }
+
+// daily quote?
+// todos, daily focus
+// image caching - only refresh once per day, loading spinner
+
+// https://orioniconlibrary.com/ icon library
+// https://github.com/public-apis/public-apis 
+// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous online course
