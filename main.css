@@ -46,7 +46,7 @@ main {
 }
 
 .middle {
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-align: center;
 }
 #photo-credit a {
@@ -78,25 +78,24 @@ main {
   margin-left: 1.75em;
 }
 
-#weather-top{
-display: flex;
-align-items: center;
+#weather-top {
+  display: flex;
+  align-items: center;
 }
 
-#weather-top span{
+#weather-top span {
   font-size: 2rem;
 }
 
 #weather-icon {
-  width:60px;
+  width: 60px;
 }
 
-#weather-bottom{
+#weather-bottom {
   text-align: right;
   /* margin: -10px; */
 }
 
-#weather-bottom span{
+#weather-bottom span {
   font-size: 1.5rem;
 }
-
