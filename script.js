@@ -115,8 +115,9 @@ function getWeather(latitude, longitude){
     })
 }
 
-// daily quote?
-// todos, daily focus
+// daily quote along bottom?
+// todo list in lower right corner, daily focus under time
+// upper left list of frequent links
 // image caching - only refresh once per day, loading spinner
 
 // https://orioniconlibrary.com/ icon library
